@@ -1,14 +1,26 @@
-# B2 Réseau 2022
+# B2 Réseau 2023
 
-Vous trouverez ici les ressources liées au cours de réseau de première année.
+Vous trouverez ici les ressources liées au cours de réseau de deuxièèèèème année.
 
 # [Cours](./cours/README.md)
 
-# [Mémo](./cours/memo/README.md)
+## [Cours Dév](./cours/dev/README.md)
+
+- [`import` et librairies](./dev/import/README.md)
+- [Fonctions](./dev/fonction/README.md)
+- [Gestion d'erreur](./dev/error_handling/README.md)
+- [Port TCP et UDP (sockets)](./dev/socket/README.md)
+- [Gestion d'arguments et options](./dev/argparse/README.md)
+
+## [Cours Infra](./cours/infra/README.md)
+
+- [VLAN](./vlan/README.md)
+
+## [Cours Sécu](./cours/secu/README.md)
+
+- [Scapy](./cours/secu/scapy/README.md)
+
+## [Mémo](./cours/memo/README.md)
 
 - [Rocky Linux network](./cours/memo/rocky_network.md)
-
-# [TP](./tp/README.md)
-
-- [TP1 : Maîtrise réseau de votre PC](./tp/1/README.md)
-- [TP2 : Environnement virtuel](./tp/2/README.md)
+- [Cisco](./cours/memo/cisco.md)
