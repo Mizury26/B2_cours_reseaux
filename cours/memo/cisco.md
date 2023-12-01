@@ -22,6 +22,8 @@ Vous trouverez ici quelques mini-procédures pour réaliser certaines opération
   - [8. VLAN](#8-vlan)
     - [Mode *access*](#mode-access)
     - [Mode trunk](#mode-trunk)
+  - [9. STP](#9-stp)
+  - [10. OSPF](#10-ospf)
 
 <!-- vim-markdown-toc -->
 
@@ -322,4 +324,44 @@ Le mode *trunk* permet de définir quels VLANs seront autorisés à circuler ent
 (config-if)# exit
 (config)# exit
 # show interface trunk
+```
+
+## 9. STP
+
+➜ Voir la conf actuelle
+
+```cisco
+# show spanning-tree
+```
+
+➜ Modifier la priorité d'une interface
+
+```cisco
+sw1(config)#interface Ethernet0/0
+sw1(config-if)#spanning-tree vlan 1 port-priority 50
+```
+
+## 10. OSPF
+
+➜ Configurer OSPF
+
+```cisco
+# Activation de OSPF
+R3(config)#router ospf 1
+
+# Définition arbitraire d'un router-id
+R3(config-router)#router-id 3.3.3.3
+
+# Partage du réseau 10.1.1.0/24
+# Notez bien la notation du masque en inversé
+R3(config-router)#network 10.1.1.0 0.0.0.255 area 0
+```
+
+➜ Voir la conf
+
+```cisco
+R3# show ip route
+R3# show ip ospf
+R3# show ip ospf neighbor
+R3# show ip ospf ?     # pour + de commandes et de détails
 ```
