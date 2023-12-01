@@ -7,10 +7,12 @@
 - [Gestion d'erreur](./dev/error_handling/README.md)
 - [Port TCP et UDP (sockets)](./dev/socket/README.md)
 - [Gestion d'arguments et options](./dev/argparse/README.md)
+- [Encodage](./encoding/README.md)
 
 # Cours Infra
 
 - [VLAN](./vlan/README.md)
+- [STP](./stp/README.md)
 
 # Cours Sécu
 
