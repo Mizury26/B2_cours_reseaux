@@ -11,7 +11,8 @@ Vous trouverez ici les ressources liées au cours de réseau de deuxièèèèèm
 - [Gestion d'erreur](./dev/error_handling/README.md)
 - [Port TCP et UDP (sockets)](./dev/socket/README.md)
 - [Gestion d'arguments et options](./dev/argparse/README.md)
-- [Encodage](./encoding/README.md)
+- [Encodage](./dev/encoding/README.md)
+- [Asyncrone](./cours/dev/async/README.md)
 
 ## [Cours Infra](./cours/infra/README.md)
 
@@ -21,6 +22,7 @@ Vous trouverez ici les ressources liées au cours de réseau de deuxièèèèèm
 ## [Cours Sécu](./cours/secu/README.md)
 
 - [Scapy](./cours/secu/scapy/README.md)
+- [Rémédiation calculette](./cours/secu/remediation/README.md)
 
 ## [Mémo](./cours/memo/README.md)
 

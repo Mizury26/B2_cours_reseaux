@@ -24,6 +24,8 @@ Vous trouverez ici quelques mini-procédures pour réaliser certaines opération
     - [Mode trunk](#mode-trunk)
   - [9. STP](#9-stp)
   - [10. OSPF](#10-ospf)
+  - [11. LACP](#11-lacp)
+  - [12. HSRP](#12-hsrp)
 
 <!-- vim-markdown-toc -->
 
@@ -355,6 +357,9 @@ R3(config-router)#router-id 3.3.3.3
 # Partage du réseau 10.1.1.0/24
 # Notez bien la notation du masque en inversé
 R3(config-router)#network 10.1.1.0 0.0.0.255 area 0
+
+# si R3 a accès internet, il peut partager sa route par défaut dans OSPF
+R3(config-router)#default-information originate always 
 ```
 
 ➜ Voir la conf
@@ -364,4 +369,64 @@ R3# show ip route
 R3# show ip ospf
 R3# show ip ospf neighbor
 R3# show ip ospf ?     # pour + de commandes et de détails
+```
+
+## 11. LACP
+
+> On suppose deux switches qui sont reliés par deux câbles. Le but est donc d'agréger, sur chaque switch, les deux ports. Pour simuler un seul "gros" port redondé par deux liens.
+
+➜ **Configurez les VLANs au préalable sur les deux switches**
+
+- ou en même temps, mais d'abord déclaration de VLAN
+- et ensuite déclaration de l'agrégation de ports
+
+```cisco
+interface FastEthernet0/1  # on ajoute une première interface au port-channel
+ switchport ... # config VLAN
+ channel-group 1 mode on  # 1 c'est l'ID du port-channel
+ exit
+interface FastEthernet0/2  # puis la deuxième
+ switchport ... # config VLAN
+ channel-group 1 mode on
+```
+
+Voir l'état de LACP (Etherchannel) :
+
+```cisco
+show etherchannel ?
+show etherchannel summary
+show etherchannel load-balance
+etc.
+```
+
+## 12. HSRP
+
+> *On suppose R1 10.1.1.1, R2 10.1.1.2 et l'IP virtuelle voulue 10.1.1.3.*
+
+Sur R1, celui qui sera prioritaire :
+
+```cisco
+interface fe 1/0
+ ip address 10.1.1.1 255.255.255.0
+ no shutdown
+ standby 10 ip 10.1.1.3
+ standby 10 priority 150
+ standby 10 preempt
+```
+
+Sur R2 :
+
+```cisco
+interface fe 1/0
+ ip address 10.1.1.2 255.255.255.0
+ no shutdown
+ standby 10 ip 10.1.1.3
+ standby 10 priority 100
+```
+
+Voir l'état de HSRP :
+
+```
+R2# show standby
+R2# show standby brief
 ```

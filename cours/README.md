@@ -7,7 +7,8 @@
 - [Gestion d'erreur](./dev/error_handling/README.md)
 - [Port TCP et UDP (sockets)](./dev/socket/README.md)
 - [Gestion d'arguments et options](./dev/argparse/README.md)
-- [Encodage](./encoding/README.md)
+- [Encodage](./encoding/encoding/README.md)
+- [Asynchrone](./dev/async/README.md)
 
 # Cours Infra
 
@@ -17,6 +18,7 @@
 # Cours Sécu
 
 - [Scapy](./secu/scapy/README.md)
+- [Rémédiation calculette](./secu/remediation/README.md)
 
 ## Mémos
 
